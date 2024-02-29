@@ -9,7 +9,7 @@ pipeline {
           scannerHome = tool 'SonarScanner'
         }
         withSonarQubeEnv('SonarQube Server') {
-          sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=python-app"
+          sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=sqa_2bcb25e077b52f9072187b0fa830e02f08dba31c"
         }
       }
     }
@@ -17,14 +17,14 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script{
-                    sh 'docker build -t kelvinskell/python-http-server .'
+                    sh 'docker build -t ctrprabhu/python-http-server .'
             }
         }
     }
         stage('Containerize And Test') {
             steps {
                 script{
-                    sh 'docker run -d --name python-app kelvinskell/python-http-server && sleep 10 && docker stop python-app'
+                    sh 'docker run -d --name python-app ctrprabhu/python-http-server && sleep 10 && docker stop python-app'
                 }
             }
         }
