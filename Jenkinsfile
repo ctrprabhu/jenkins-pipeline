@@ -9,7 +9,7 @@ pipeline {
           scannerHome = tool 'SonarScanner'
         }
         withSonarQubeEnv('SonarQube Server') {
-          sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey="
+          sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=sqa_be0c5cb6c696fb64f99de1f65929c86b321da4e2"
         }
       }
     }
