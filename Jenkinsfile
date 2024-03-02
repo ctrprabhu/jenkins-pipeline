@@ -37,17 +37,6 @@ pipeline {
                 }
             }
         }    
-
-        post {
-        always {
-            // Always executed
-                sh 'docker rm python-app'
-        }
-        success {
-            // on sucessful execution
-            sh 'docker logout'   
-        }
-    }
         stage('Deploying App to Kubernetes') {
           steps {
               script {
