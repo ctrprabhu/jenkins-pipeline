@@ -19,8 +19,7 @@ spec:
       - name: nodeserver
         image: ctrprabhu/python-http-server
         ports:
-        - containerPort: 3000
-        
+        - containerPort: 8080
         
 ---
 
@@ -35,5 +34,5 @@ spec:
   ports:
   - protocol: TCP
     port: 5000
-    targetPort: 3000
+    targetPort: 8080
     nodePort: 31110
